@@ -35,6 +35,7 @@ namespace Async_Search
                 HtmlDocument htmlDocument = new HtmlDocument();
                 htmlDocument.LoadHtml(htmlString);
 
+                //as all required data is placed inside table, try to find all tr with search condition
                 var foundRowsList =
                     htmlDocument.DocumentNode.SelectNodes("//tr")
                         .Where(n => n.InnerHtml.Contains(searchPattern))
